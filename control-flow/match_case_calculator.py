@@ -1,10 +1,16 @@
 # match_case_calculator.py
 
-# Function to perform operations
-def calculate(num1, num2, operator):
+def main():
+    # Prompting user for input
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    operation = input("Choose the operation (+, -, *, /): ")
+
+    # Using match case to perform operation based on user input
     result = None
-    # Match Case statement to perform operations based on operator
-    match operator:
+    error_message = "Cannot divide by zero."
+    
+    match operation:
         case '+':
             result = num1 + num2
         case '-':
@@ -12,25 +18,20 @@ def calculate(num1, num2, operator):
         case '*':
             result = num1 * num2
         case '/':
-            if num2 != 0:
-                result = num1 / num2
+            if num2 == 0:
+                print(error_message)
             else:
-                return "Cannot divide by zero."
-
-    return result
-
-# Main program
-if __name__ == "__main__":
-    # Prompting user for input
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
-    operator = input("Choose the operation (+, -, *, /): ")
-
-    # Calling calculate function
-    result = calculate(num1, num2, operator)
+                result = num1 / num2
+        case _:
+            print("Invalid operation. Please choose from '+', '-', '*', '/'.")
 
     # Displaying the result
-    if isinstance(result, str):  # If result is a string (error message)
-        print(result)
-    else:
-        print(f"The result is {result}.")
+    if result is not None:
+        if operation == '/':
+            if result is not None:
+                print(f"The result is {result:.2f}.")
+        else:
+            print(f"The result is {result}.")
+
+if __name__ == "__main__":
+    main()
