@@ -1,20 +1,19 @@
-def perfom_operation(num1, num2, operation):
+def perform_operation(num1, num2, operation):
     if operation == 'add':
         return num1 + num2
     elif operation == 'subtract':
-        return num1 + num2
+        return num1 - num2
     elif operation == 'multiply':
         return num1 * num2
     elif operation == 'divide':
-        if num2 == 0:
-            return "Error: Division by zero!"
-        else:
-            return num1 / num2
-    else:
-        return "Error: Invalid operation! Please choose from 'add', 'subtract', 'multiple', or 'divide'."
-    
+        try:
+            result = num1 / num2
+            return result
+        except ZeroDivisionError:
+            return "Error: Division by zero"
 
-
+   # If operation is not recognized
+    return "Error: Invalid operation"
 
 from arithmetic_operations import perform_operation
 
