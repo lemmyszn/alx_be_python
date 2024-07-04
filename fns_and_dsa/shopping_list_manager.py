@@ -10,7 +10,7 @@ def display_menu():
 def main():
     shopping_list = []
 
-    print("Shopping List Manager")  # Added as per the requirement
+    print("Shopping List Manager")
 
     while True:
         display_menu()
@@ -18,7 +18,7 @@ def main():
         choice = input("Enter your choice (1-4): ")
 
         if choice == '1':
-            item = input("Enter item to add: ")
+            item = input("Enter the item to add: ")  # Updated prompt as requested
             shopping_list.append(item)
             print(f"'{item}' added to the shopping list.")
 
@@ -50,4 +50,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
