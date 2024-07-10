@@ -19,7 +19,7 @@ class Book:
     def is_available(self):
         return not self._is_checked_out
 
-from book import Book
+from library_management import Book
 
 class Library:
     def __init__(self):
@@ -51,7 +51,7 @@ class Library:
         else:
             print("No available books.")
 
-from library import Library
+from library_management import Library
 
 def main():
     # Create a library
