@@ -5,7 +5,7 @@ class Book:
         self.author = author
 
     def __str__(self):
-        return f"{self.title} by {self.author}"
+        return f"Book: {self.title} by {self.author}"
 
 # Define the derived class EBook
 class EBook(Book):
@@ -14,7 +14,7 @@ class EBook(Book):
         self.file_size = file_size
 
     def __str__(self):
-        return f"{self.title} by {self.author} [E-Book, File Size: {self.file_size} MB]"
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
 
 # Define the derived class PrintBook
 class PrintBook(Book):
@@ -23,7 +23,7 @@ class PrintBook(Book):
         self.page_count = page_count
 
     def __str__(self):
-        return f"{self.title} by {self.author} [Print Book, Page Count: {self.page_count}]"
+        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
 # Define the Library class demonstrating composition
 class Library:
@@ -37,32 +37,21 @@ class Library:
         for book in self.books:
             print(book)
 
-# Example usage (uncomment to test)
-# if __name__ == "__main__":
-#     library = Library()
-#     ebook = EBook("1984", "George Orwell", 2)
-#     print_book = PrintBook("To Kill a Mockingbird", "Harper Lee", 336)
-#     library.add_book(ebook)
-#     library.add_book(print_book)
-#     library.list_books()
-
 from library_system import Book, EBook, PrintBook, Library
 
 def main():
     # Create a library instance
     library = Library()
 
-    # Create instances of EBook and PrintBook
-    ebook1 = EBook("1984", "George Orwell", 2)
-    print_book1 = PrintBook("To Kill a Mockingbird", "Harper Lee", 336)
-    ebook2 = EBook("The Great Gatsby", "F. Scott Fitzgerald", 1)
-    print_book2 = PrintBook("Moby Dick", "Herman Melville", 635)
+    # Create instances of Book, EBook, and PrintBook
+    book1 = Book("Pride and Prejudice", "Jane Austen")
+    ebook1 = EBook("Snow Crash", "Neal Stephenson", 500)
+    print_book1 = PrintBook("The Catcher in the Rye", "J.D. Salinger", 234)
 
     # Add books to the library
+    library.add_book(book1)
     library.add_book(ebook1)
     library.add_book(print_book1)
-    library.add_book(ebook2)
-    library.add_book(print_book2)
 
     # List all books in the library
     print("Books in the library:")
@@ -70,3 +59,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
